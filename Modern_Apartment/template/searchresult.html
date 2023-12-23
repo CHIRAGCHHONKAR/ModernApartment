@@ -1,0 +1,60 @@
+{% extends 'base.html' %}{% block content %}
+
+<!--sites-->
+<section id="sites" class="filtered-sites my-5">
+    <div class="row justify-content-center m-0 mt-5 pt-5">
+      <div class="col-sm-11">
+        <div class="row">
+          {% for property_item in propertydata %}
+          <div class="col-sm-4 text-start">
+            <img src="/media/{{ property_item.Property_images }}" class="img-fluid" />
+            <h4 class="fw-bold mt-2">{{ property_item.Property_category }}</h4>
+            <p>{{ property_item.Property_Description | safe }}</p>
+            <p>Location : {{ property_item.Property_location}}</p>
+            <p>Area : {{ property_item.Property_area}}</p>
+            <p>Price : {{ property_item.Property_price}}</p>
+          </div>
+          {% empty %}
+          <p class="text-center fs-2 blue fw-bold">No Property Found</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+</section>
+<!--sites end-->
+  
+  <!--pagenation-->
+  <div class="row justify-content-center m-0 mt-4 pb-5">
+    <div class="col-sm-11">
+      <div class="row justify-content-end">
+        <div class="col-sm-3">
+          <ul class="pagination pagination-sm float-end">
+            {% if propertydata.has_previous %}
+            <li class="page-item">
+              <a
+                class="page-link text-dark"
+                href="/property/?page={{propertydata.previous_page_number}}"
+                ><i class="fa fa-long-arrow-left"></i
+              ></a>
+            </li>
+            {% endif %} {% for n in totalpagelist %}
+            <li class="page-item">
+              <a class="page-link text-dark" href="/property/?page={{n}}">{{n}}</a>
+            </li>
+            {% endfor %} {% if propertydata.has_next %}
+            <li class="page-item">
+              <a
+                class="page-link text-dark"
+                href="/property/?page={{propertydata.next_page_number}}"
+                ><i class="fa fa-long-arrow-right"></i
+              ></a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--pagenation end-->
+
+{% endblock %}

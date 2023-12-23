@@ -1,0 +1,88 @@
+{% extends 'base.html' %}{% block content %}
+
+<section class="helpdesk" id="helpdesk">
+    <div class="row justify-content-center m-0 my-5">
+        <div class="col-sm-3">
+            <img src="/static/images/helpdesk.png" class="img-fluid">
+        </div>
+        <div class="col-sm-10 mt-5">
+            <h1 class="fw-bold mt-5 text-center">Frequently asked questions</h1>
+            <h4 class="text-center fw-light my-3 mb-4">Find quick answers to frequent pre-sale questions asked by customers</h4>
+            <!--accordion-->
+            <div class="border rounded-4 my-3">
+                <button class="accordion fw-bold blue border-0">How do I search for properties on your website?</button>
+                <div class="panel">
+                    <p>To search for properties, use our search bar located on the homepage.
+                     can filter results by location, price range, property type, and more.</p>
+                </div>
+            </div>  
+            <div class="border rounded-4 my-3">
+                <button class="accordion fw-bold blue border-0">How do I contact a real estate agent or seller? </button>
+                <div class="panel">
+                    <p>To get in touch with a listing agent or seller, simply use the contact form on the property details page.
+                    Fill in your information, and your message will be sent directly to them.</p>
+                </div>
+            </div>
+            <div class="border rounded-4 my-3">
+                <button class="accordion fw-bold blue border-0">What's the difference between "For Sale" and "For Rent" listings?</button>
+                <div class="panel">
+                    <p>"For Sale" listings are properties available for purchase, while "For Rent" listings are available for lease.
+                    You can filter your search results accordingly.</p>
+                </div>
+            </div>
+            <div class="border rounded-4 my-3">
+                <button class="accordion fw-bold blue border-0">Can I list my property on your website?</button>
+                <div class="panel">
+                    <p>Yes, you can list your property for sale or rent on our website. Visit our 'List Your Property' page and follow
+                    the steps to create your listing.</p>
+                </div>
+            </div>
+            <div class="border rounded-4 my-3"> 
+                <button class="accordion fw-bold blue border-0">What is the process of buying a property?</button>
+                <div class="panel">
+                    <p>The home-buying process typically involves searching for properties, making an offer, getting a home inspection,
+                    securing financing, and closing the deal. Our agents can provide detailed guidance.</p>
+                </div>
+            </div>
+            <div class="border rounded-4 my-3">
+                <button class="accordion fw-bold blue border-0"> How can I stay updated on new property listings?</button>
+                <div class="panel">
+                    <p>You can sign up for our newsletter or create a saved search with your preferences, and we'll send you email notifications
+                    when new listings that match your criteria are added.</p>
+                </div>
+            </div>
+            <div class="border rounded-4 my-3">
+                <button class="accordion fw-bold blue border-0">How can I report a problem with a listing or user account?</button>
+                <div class="panel">
+                    <p>If you encounter any issues or need assistance, please contact our support team through the
+                    "Contact Us" page, and we'll promptly address your concerns.</p>
+                </div>
+            </div>           
+        </div>
+        <div class="col-sm-10 text-center mt-4">
+            <h2 class="fw-bold mt-3 ">Didn't find an answer?</h2>
+            <p class="mb-5">Get in touch with us for details on setup and additional custom services pricing</p>
+            <a href="/contact/" class="blue2 px-5 py-3 fs-5 text-decoration-none text-white rounded-pill">Contact Us</a>
+        </div>    
+        
+    </div>
+</section>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+</script>
+    
+{% endblock %}

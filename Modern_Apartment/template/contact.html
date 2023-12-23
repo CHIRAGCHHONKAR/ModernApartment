@@ -1,0 +1,145 @@
+{% extends 'base.html' %} {% block content %}
+
+<!--contact-->
+<section id="contact" class="contact">
+  <div class="row justify-content-center m-0 mt-5 py-5">
+    <div class="col-sm-11">
+      <div class="row justify-content-center">
+        <div class="col-sm-6 side">
+          <h2>Contact US</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
+        </div>
+        <div class="col-sm-6 text-end">
+          <p>
+            <a href="index.html" class="text-decoration-none text-dark">HOME</a>
+            <span class="text-secondary">/ CONTACT</span>
+          </p>
+        </div>
+        <div class="col-sm-12 mt-5">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112306.16496529593!2d77.24903405674387!3d28.40212358831434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdc15f5a424b1%3A0xe4f50576c850e0f2!2sFaridabad%2C%20Haryana!5e0!3m2!1sen!2sin!4v1665030914682!5m2!1sen!2sin"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="form-control length3 p-0"
+          ></iframe>
+        </div>
+        <div class="col-sm-6 mt-5">
+          {% if request.user.is_authenticated %}
+          <form method="POST" action="{% url 'Contactform' %}">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-sm-6 my-3">{{form.name}}</div>
+              <div class="col-sm-6 my-3">{{form.email}}</div>
+              <div class="col-sm-12">{{form.subject}}</div>
+              <div class="col-sm-12 my-3">{{form.message}}</div>
+              <div class="col-sm-12 my-3 text-center">
+                <button class="btn btn-secondary text-white px-4">
+                  Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+          {% else %}
+          <form method="POST" action="{% url 'Contactform' %}">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-sm-6 my-3">{{form.name}}</div>
+              <div class="col-sm-6 my-3">{{form.email}}</div>
+              <div class="col-sm-12">{{form.subject}}</div>
+              <div class="col-sm-12 my-3">{{form.message}}</div>
+              <div class="col-sm-12 my-3 text-center">
+                <a href="/signup/" class="btn btn-secondary text-white px-4"
+                  >Send Message</a
+                >
+              </div>
+            </div>
+          </form>
+          {% endif %}
+        </div>
+        <div class="col-sm-6 mt-5">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-sm-2 text-center">
+                  <i class="fa fa-envelope-o fs-2 pt-2 blue"></i>
+                </div>
+                <div class="col-sm-10 text-start">
+                  <h2>Say Hello</h2>
+                  <p class="mt-4">
+                    Email <span class="fw-bold">: modernaptelegance@gmail.com</span>
+                  </p>
+                  <p class="">
+                    Phone <span class="fw-bold">: +91 xxx xxx xxx</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 mt-4">
+              <div class="row">
+                <div class="col-sm-2 text-center">
+                  <i class="fa fa-map-marker fs-2 pt-2 blue"></i>
+                </div>
+                <div class="col-sm-10 text-start">
+                  <h2>Find us in</h2>
+                  <p class="mt-4">Faridabad , Haryana<br />India</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 mt-4">
+              <div class="row">
+                <div class="col-sm-2 text-center">
+                  <i class="fa fa-share fs-2 pt-2 blue"></i>
+                </div>
+                <div class="col-sm-10 text-start hover-effect5">
+                  <h2>Social networks</h2>
+                  <ul class="list-inline">
+                    <li class="list-inline-item mx-2 text-center">
+                      <a
+                        href="https://www.facebook.com/"
+                        class="text-decoration-none hvr-sweep-to-right"
+                        ><i class="fa fa-facebook p-3"></i
+                      ></a>
+                    </li>
+                    <li class="list-inline-item mx-2 text-center">
+                      <a
+                        href="https://twitter.com/"
+                        class="text-decoration-none Twitter"
+                        ><i class="fa fa-twitter p-3"></i
+                      ></a>
+                    </li>
+                    <li class="list-inline-item mx-2 text-center">
+                      <a
+                        href="https://www.instagram.com/"
+                        class="text-decoration-none Google Plus"
+                        ><i class="fa fa-instagram p-3"></i
+                      ></a>
+                    </li>
+                    <li class="list-inline-item mx-2 text-center">
+                      <a
+                        href="https://www.linkedin.com/"
+                        class="text-decoration-none Youtube"
+                        ><i class="fa fa-linkedin p-3"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--contact end-->
+
+{% endblock %}

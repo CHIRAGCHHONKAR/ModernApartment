@@ -1,0 +1,47 @@
+{% extends 'base.html' %}{% block content %}
+
+<!--addproperty-->
+<section class="addproperty" id="addproperty">
+    <div class="row justify-content-center m-0 my-5">
+        <div class="col-sm-9">
+            <h3 class="fw-bold">List Your Property Here</h3>
+        </div>
+        <div class="col-sm-9 border rounded-5 p-5 mt-4">
+            <form method="Post" action="{% url 'Propertydata' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-4">
+                    {{form5.Property_images}}
+                    <label class="form-label">Property Images</label>
+                  </div>
+                  <div class="mb-4">
+                    {{form5.Property_category}}
+                    <label class="form-label">Property Category</label>
+                  </div>
+                  <div class="mb-4">
+                    {{form5.Property_Description}}
+                    <label class="form-label">Property Description</label>
+                  </div>
+                  <div class="mb-4">
+                    {{form5.Property_location}}
+                    <label class="form-label">Property Address</label>
+                  </div>
+                  <div class="mb-4">
+                    {{form5.Property_area}}
+                    <label class="form-label">Property Area</label>
+                  </div>
+                  <div class="mb-4">
+                    {{form5.Property_price}}
+                    <label class="form-label">Property Price</label>
+                  </div>
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-success btn-md" type="submit">
+                      Upload
+                    </button>
+                  </div>
+            </form>    
+        </div>
+    </div>
+</section>    
+<!--addproperty end-->
+
+{% endblock %}
